@@ -1,10 +1,12 @@
 package com.example.study;
 
+import com.example.study.model.Dish;
 import com.example.study.model.Effect;
 import com.example.study.model.RightsizingResponse;
 import com.example.study.model.RightsizingVm;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -222,14 +224,14 @@ public class RefactoringTests {
   }
 
   @Test
-  public void 메소드_분리() {
+  public void 메소드_추출() {
 
     // status 가 oversized, undersized 인 요소를 대상으로만 자원 총합을 구하기 위해 새로운 List를 생성한다.
     List<RightsizingVm> targetVms = rightsizingVms.stream()
         .filter(vm -> vm.getStatus().equals("oversized") || vm.getStatus().equals("undersized"))
         .collect(Collectors.toList());
 
-    // 분리된 메소드를 통해 메트릭 타입별 Effect 객체를 생성한 후 할당한다.
+    // 추출된 메소드를 통해 메트릭 타입별 Effect 객체를 생성한 후 할당한다.
     Effect cpuEffect = getEffectByMetricType(targetVms, "cpu");
     Effect memoryEffect = getEffectByMetricType(targetVms, "memory");
     Effect diskEffect = getEffectByMetricType(targetVms, "disk");
@@ -238,6 +240,14 @@ public class RefactoringTests {
     RightsizingResponse response = new RightsizingResponse(cpuEffect, memoryEffect, diskEffect);
 
     System.out.println(" response = " + response);
+
+    Dish dish = new Dish();
+
+    Optional<Dish> test = Optional.of(dish);
+
+    test.ifPresent(e -> {
+      e.getName();
+    });
   }
 
   @Test
