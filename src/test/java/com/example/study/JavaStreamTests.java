@@ -1,10 +1,9 @@
 package com.example.study;
 
+import com.example.study.model.Dish;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class JavaStreamTests {
@@ -12,7 +11,7 @@ public class JavaStreamTests {
   List<Dish> menu = new ArrayList();
 
   @BeforeEach
-  public void before() {
+  public void setup() {
     Dish dish1 = new Dish("인스턴트", "감자튀김", 500);
     Dish dish2 = new Dish("육류", "갈비", 1300);
     Dish dish3 = new Dish("인스턴트", "치킨", 2000);
