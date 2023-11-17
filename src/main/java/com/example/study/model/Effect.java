@@ -16,4 +16,12 @@ public class Effect {
     this.beforeValue = beforeValue;
     this.afterValue = afterValue;
   }
+
+  public void setBeforeValue(int beforeValue) {
+    this.beforeValue = beforeValue;
+  }
+
+  public void setAfterValue(int afterValue) {
+    this.afterValue = afterValue;
+  }
 }

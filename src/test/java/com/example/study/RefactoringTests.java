@@ -292,4 +292,11 @@ public class RefactoringTests {
         .afterValue(afterMetricSum)
         .build();
   }
+
+  @Test
+  void 테스트() {
+
+    Effect effect = new Effect();
+
+  }
 }
